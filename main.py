@@ -5,7 +5,9 @@ import random
 import os
 
 pygame.init()
-playSound = False
+
+# Potentially create an array of emotions and map them to the sound files if we have enough emotions
+# and sounds
 while True:
     ui = input("Please enter an emotion: ")
     ui = ui.strip().lower()
