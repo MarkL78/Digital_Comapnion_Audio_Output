@@ -13,6 +13,14 @@ while True:
     ui = ui.strip().lower()
     rand = random.randint(0, 99)
 
+    if ui == "quit":
+        # Clean up the pygame library
+        sound = pygame.mixer.Sound('Sounds/powerdown.mp3')
+        sound.play()
+        pygame.time.wait(int(sound.get_length() * 1000))
+        pygame.quit()
+        break
+
     if ui == "happy":
         sound = pygame.mixer.Sound('Sounds/happy.mp3')
     elif ui == "nervous":
@@ -20,8 +28,6 @@ while True:
             sound = pygame.mixer.Sound('Sounds/cute.mp3')
         else:
             sound = pygame.mixer.Sound('Sounds/cute2.mp3')
-    elif ui == "powerdown":
-        sound = pygame.mixer.Sound('Sounds/powerdown.mp3')
     else:
         if rand < 49:
             sound = pygame.mixer.Sound('Sounds/beep.mp3')
@@ -32,6 +38,3 @@ while True:
 
     # Wait for the sound to finish playing
     pygame.time.wait(int(sound.get_length() * 1000))
-
-# Clean up the pygame library
-pygame.quit()
